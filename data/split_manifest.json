@@ -1,0 +1,86 @@
+{
+  "seed": 42,
+  "dataset": "ncbi/TrialGPT-Criterion-Annotations",
+  "columns_used": {
+    "patient_id": "patient_id",
+    "trial_id": "trial_id",
+    "patient": "note",
+    "criterion_type": "criterion_type",
+    "criterion_text": "criterion_text",
+    "label": "expert_eligibility",
+    "evidence": "expert_sentences"
+  },
+  "splits": {
+    "train": {
+      "n_patients": 37,
+      "n_records": 603,
+      "patient_ids": [
+        "sigir-201412",
+        "sigir-201413",
+        "sigir-201414",
+        "sigir-201416",
+        "sigir-201418",
+        "sigir-201419",
+        "sigir-201423",
+        "sigir-201424",
+        "sigir-201425",
+        "sigir-201426",
+        "sigir-201429",
+        "sigir-20143",
+        "sigir-20144",
+        "sigir-20145",
+        "sigir-20146",
+        "sigir-20147",
+        "sigir-20148",
+        "sigir-20149",
+        "sigir-20151",
+        "sigir-201510",
+        "sigir-201511",
+        "sigir-201512",
+        "sigir-201514",
+        "sigir-201517",
+        "sigir-201518",
+        "sigir-201519",
+        "sigir-20152",
+        "sigir-201520",
+        "sigir-201521",
+        "sigir-201523",
+        "sigir-201524",
+        "sigir-20153",
+        "sigir-20154",
+        "sigir-20155",
+        "sigir-20156",
+        "sigir-20157",
+        "sigir-20159"
+      ]
+    },
+    "val": {
+      "n_patients": 8,
+      "n_records": 206,
+      "patient_ids": [
+        "sigir-20141",
+        "sigir-201415",
+        "sigir-20142",
+        "sigir-201420",
+        "sigir-201427",
+        "sigir-201430",
+        "sigir-201515",
+        "sigir-201522"
+      ]
+    },
+    "test": {
+      "n_patients": 8,
+      "n_records": 206,
+      "patient_ids": [
+        "sigir-201410",
+        "sigir-201411",
+        "sigir-201417",
+        "sigir-201421",
+        "sigir-201422",
+        "sigir-201513",
+        "sigir-201516",
+        "sigir-20158"
+      ]
+    }
+  }
+}

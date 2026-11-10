@@ -1,0 +1,27 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Python caching
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# AI/ML Large Weights and Model Outputs
+outputs/
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.ckpt
+*.onnx
+
+# Local Caches and Ide Configs
+.cache/
+.pytest_cache/
+.ipynb_checkpoints/
+.vscode/
+.idea/
