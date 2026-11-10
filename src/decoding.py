@@ -129,11 +129,27 @@ def speculative_greedy(target, draft, input_ids, max_new_tokens, eos_id=None, k=
         a = int((g[:, :kk] == d).long().cumprod(dim=1).sum())          # accepted prefix length
         new = d[0, :a].tolist() + [int(g[0, a])]                       # + correction (or bonus) token
         base = ct.get_seq_length() - (kk + 1)                          # = n-1 before this round
-        ct.crop(base + a + 1)                                          # keep last,d1..da ; drop rejected
+        # Calculate how many tokens to remove from the end as a negative number
+        # Calculate how many tokens to remove from the end as a negative number
+        current_len = ct.get_seq_length()
+        target_len = base + a + 1
+        tokens_to_remove = target_len - current_len
+
+        if tokens_to_remove < 0:
+          ct.crop(tokens_to_remove)
+
+                                         # keep last,d1..da ; drop rejected
         if a == kk:                                                    # d_kk was never fed to the draft
             _, cd = _step(draft, d[:, -1:], cd); st["draft_calls"] += 1
         else:
-            cd.crop(base + a + 1)
+            # Calculate how many tokens to remove from the target model cache end
+            current_len_cd = cd.get_seq_length()
+            target_len_cd = base + a + 1
+            tokens_to_remove_cd = target_len_cd - current_len_cd
+
+            if tokens_to_remove_cd < 0:
+             cd.crop(tokens_to_remove_cd)
+ 
         st["rounds"] += 1; st["drafted"] += kk; st["accepted"] += a
         for t in new:
             out.append(t)
